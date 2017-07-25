@@ -1,38 +1,43 @@
-"""
-I got a multiline comment here.
-Yeah
-"""
-#a = random_num
-#print a
+#!/usr/bin/env python
+#
+# Usage: ./sandbox.py -v
 
+import unittest
+import inspect
 import random
 
-b=random
-print b
+"""
+Testing a multiline comment here.
+Test2
+Test3...
+"""
 
-b = random.randint(0,100)
+class RandomTests(unittest.TestCase):
+    def testPrintRandomModule(self):
+        b = random
+        print "b = random:", b
+        self.assertTrue(inspect.ismodule(b))
 
-print "here is a random fraction between 0 and 1:help", random.random()
+    def testRandomFraction(self):
+        b = random.random()
+        print "here is a random fraction between 0 and 1: ", b
+        self.assertGreaterEqual(b, 0)
+        self.assertLess(b, 1)
 
-while b != 10:
-    print b
-    b = random.randint(0, 100)
+    def testRandomLoopCompletes(self):
+        b = 0
+        while b != 10:
+            b = random.randint(0, 100)
+        print "b == 10"
+        self.assertTrue(True)
 
-def addnumber(a,b):
-    sumnum = a+b
-    return sumnum
+    def testaddfucntion(self):
+        def addnumber(a, b):
+            sumnum = a + b
+            return sumnum
+        self.assertEquals(addnumber(10,20), 30)
 
-print addnumber(1,2)
-print '1'
-
-
-
-
-
-
-
-
-
-
+if __name__ == "__main__":
+    unittest.main()
 
 
