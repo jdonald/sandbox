@@ -24,7 +24,7 @@ class StringTests(unittest.TestCase):
 
     def test_sorting_via_key(self):
         a = ['aaa','c','dddd','rr']
-        sorted (a, key=len)
+        a.sort(key=len)
         print a
         self.assertEquals(a[0], 'c')
         self.assertEquals(a[3], 'dddd')
@@ -40,8 +40,6 @@ def first_two(s):
     return s[0:2]
 
 print s + " - " + first_two(s)
-
-help(sorted)
 
 a = ['aaa','t','dddd','rr']
 sorted(a)
