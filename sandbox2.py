@@ -15,13 +15,20 @@ def stdin_name_is_pig():
     a = input ( "your name is ")
     print (a + " " + "is a pig")
 
-a = ['aaa','c','dddd','rr']
-b = len(a[0])
-print b
+class StringTests(unittest.TestCase):
+    def test_list_str_length(self):
+        a  = ['aaa','c','dddd','rr']
+        b = len(a[0])
+        print b
+        self.assertEquals(b, 3)
 
-a = ['aaa','c','dddd','rr']
-sorted (a, key=len)
-print a
+    def test_sorting_via_key(self):
+        a = ['aaa','c','dddd','rr']
+        sorted (a, key=len)
+        print a
+        self.assertEquals(a[0], 'c')
+        self.assertEquals(a[3], 'dddd')
+
 
 def last(s):
     return s[-1]
@@ -78,6 +85,9 @@ while i<5:
     print i,
     i = i + 1
 print()
+
+if __name__ == "__main__":
+    unittest.main()
 
 # """
 # words = ['zat', 'aindow', 'fefenestrate']
